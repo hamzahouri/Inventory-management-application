@@ -3,6 +3,7 @@ package com.win.shop.Exception;
 public enum ErrorsCode {
 
     ARTICLE_NOT_FOUND(1000),
+    ARTICLE_NOT_Valid(1001),
     CATEGORY_NOT_FOUND(2000),
     ENTREPRISE_NOT_FOUND(3000),
     FOURNISSEUR_NOT_FOUND(4000),

@@ -1,14 +1,14 @@
 package com.win.shop.dto;
-
-import com.win.shop.model.Address;
 import com.win.shop.model.Article;
-import com.win.shop.model.Category;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 @Builder
-@Data
+@Getter
+@Setter
 public class ArticleDto {
     private Integer id;
     private String codeArticle;
@@ -19,7 +19,7 @@ public class ArticleDto {
     private String photo;
     private CategoryDto category;
 
-    public ArticleDto fromEntity (Article article) {
+    public static ArticleDto fromEntity (Article article) {
         if (article == null) {
             return null;
         }
@@ -33,7 +33,7 @@ public class ArticleDto {
                 .build();
     }
 
-    public Article toEntity (ArticleDto articleDto) {
+    public static Article toEntity (ArticleDto articleDto) {
         if (articleDto == null) {
             return null;
         }
