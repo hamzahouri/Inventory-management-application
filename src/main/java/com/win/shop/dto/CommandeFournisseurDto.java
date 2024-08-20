@@ -1,15 +1,9 @@
 package com.win.shop.dto;
-
-import com.win.shop.model.CommandClient;
 import com.win.shop.model.CommandeFournisseur;
 import com.win.shop.model.Fournisseur;
 import com.win.shop.model.LignCommandFournisseur;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Data;
-
 import java.time.Instant;
 import java.util.List;
 
@@ -22,7 +16,7 @@ public class CommandeFournisseurDto {
     private Fournisseur fournisseur;
     private List<LignCommandFournisseur> lignsCommandFournisseur;
 
-    public CommandeFournisseurDto fromEntity(CommandeFournisseur commandeFournisseur) {
+    public static CommandeFournisseurDto fromEntity(CommandeFournisseur commandeFournisseur) {
         if (commandeFournisseur == null) {
             return null;
         }
@@ -36,7 +30,7 @@ public class CommandeFournisseurDto {
     }
 
 
-    public CommandeFournisseur toEntity(CommandeFournisseurDto commandeFournisseurDto) {
+    public static CommandeFournisseur toEntity(CommandeFournisseurDto commandeFournisseurDto) {
         if (commandeFournisseurDto == null) {
             return null;
         }

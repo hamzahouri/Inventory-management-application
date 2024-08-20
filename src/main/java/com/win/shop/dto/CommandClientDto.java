@@ -3,17 +3,17 @@ package com.win.shop.dto;
 import com.win.shop.model.Client;
 import com.win.shop.model.CommandClient;
 import com.win.shop.model.LignCommandeClient;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.Instant;
 import java.util.List;
 
 @Builder
-@Data
+@Getter
+@Setter
 public class CommandClientDto {
     private Integer id;
     private String code;
@@ -21,7 +21,7 @@ public class CommandClientDto {
     private Client client;
     private List<LignCommandeClient> lignCommandeClients;
 
-    public CommandClientDto fromEntity(CommandClient commandClient) {
+    public static CommandClientDto fromEntity(CommandClient commandClient) {
         if (commandClient == null) {
             return null;
         }
@@ -35,7 +35,7 @@ public class CommandClientDto {
     }
 
 
-    public CommandClient toEntity(CommandClientDto commandClientDto) {
+    public static CommandClient toEntity(CommandClientDto commandClientDto) {
         if (commandClientDto == null) {
             return null;
         }
