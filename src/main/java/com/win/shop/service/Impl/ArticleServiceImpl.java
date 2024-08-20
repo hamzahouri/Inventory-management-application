@@ -53,7 +53,7 @@ public class ArticleServiceImpl implements ArticleService {
         if (code ==null) {
             return null;
         }
-        Optional<Article> article = Optional.ofNullable(articleRepository.findArticleByCodeArticl(code).orElseThrow(() ->
+        Optional<Article> article = Optional.ofNullable(articleRepository.findArticleByCodeArticle(code).orElseThrow(() ->
                 new EntityNotFoundException("aucune article avec ce code", ErrorsCode.ARTICLE_NOT_FOUND)));
         Article returendArticle = article.get();
         return  ArticleDto.fromEntity(returendArticle);
