@@ -11,6 +11,7 @@ public enum ErrorsCode {
     COMMAND_Fournisseur_NOT_VALID(3011),
     COMMAND_Fournisseur_NOT_FOUND(3011),
     Founisseur_NOT_FOUND(3987),
+    Utilisateur_NOT_FOUND(3998),
     COMMAND_CLIENT_NOT_FOUND(2003),
     ENTREPRISE_NOT_FOUND(3000),
     FOURNISSEUR_NOT_FOUND(4000),
