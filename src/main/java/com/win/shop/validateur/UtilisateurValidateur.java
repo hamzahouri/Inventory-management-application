@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UtilisateurValidateur {
 
-    public static List<String> validate (UtilisateurDto utilisateurDto) {
+    public static List<String> validate(UtilisateurDto utilisateurDto) {
 
         List<String> errors = new ArrayList<>();
 
@@ -21,7 +21,7 @@ public class UtilisateurValidateur {
         if (utilisateurDto.getPrenom().isEmpty()) {
             errors.add("prenom vide !");
         }
-        if (utilisateurDto.getAddress()==null) {
+        if (utilisateurDto.getAddress() == null) {
             errors.add("address vide !");
         }
 

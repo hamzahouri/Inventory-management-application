@@ -26,13 +26,13 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-      Utilisateur utilisateur = repository.findUtilisateurByEmail(email)
-              .orElseThrow( ()-> new EntityNotFoundException("Utilisateur Not Found", ErrorsCode.Utilisateur_NOT_FOUND));
+        Utilisateur utilisateur = repository.findUtilisateurByEmail(email)
+                .orElseThrow(() -> new EntityNotFoundException("Utilisateur Not Found", ErrorsCode.Utilisateur_NOT_FOUND));
 
-      List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-      utilisateur.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getRoleName())));
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        utilisateur.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getRoleName())));
 
-        return new User(utilisateur.getEmail(),utilisateur.getMotDePass(), authorities);
+        return new User(utilisateur.getEmail(), utilisateur.getMotDePass(), authorities);
 
     }
 }

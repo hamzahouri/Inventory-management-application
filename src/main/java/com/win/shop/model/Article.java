@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class Article extends AbstractEntity{
+public class Article extends AbstractEntity {
 
     private String codeArticle;
     private String designation;

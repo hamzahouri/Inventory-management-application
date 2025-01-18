@@ -6,9 +6,13 @@ import java.util.List;
 
 public interface CommandClientService {
 
-    CommandClientDto save (CommandClientDto commandClientDto);
-    CommandClientDto findById (Long id);
-    CommandClientDto findByCode (String code);
-    List<CommandClientDto> findAll ();
-    void delete (Long id);
+    CommandClientDto save(CommandClientDto commandClientDto);
+
+    CommandClientDto findById(Long id);
+
+    CommandClientDto findByCode(String code);
+
+    List<CommandClientDto> findAll();
+
+    void delete(Long id);
 }

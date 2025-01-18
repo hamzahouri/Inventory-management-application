@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.util.List;
 
-public class InvalidEntityException extends RuntimeException{
+public class InvalidEntityException extends RuntimeException {
 
     @Getter
     private ErrorsCode errorsCode;

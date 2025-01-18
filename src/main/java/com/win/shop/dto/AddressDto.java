@@ -6,8 +6,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class AddressDto
-{
+public class AddressDto {
     private Integer id;
     private String address1;
     private String address2;
@@ -15,7 +14,7 @@ public class AddressDto
     private String codePostal;
     private String pays;
 
-    public AddressDto fromEntity (Address address) {
+    public AddressDto fromEntity(Address address) {
         if (address == null) {
             return null;
         }
@@ -28,7 +27,7 @@ public class AddressDto
                 .build();
     }
 
-    public Address toEntity (AddressDto addressDto) {
+    public Address toEntity(AddressDto addressDto) {
         if (addressDto == null) {
             return null;
         }

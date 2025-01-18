@@ -21,7 +21,7 @@ public class VentesDto {
     private String commentaire;
     private List<LignVenteDto> venteDtoList;
 
-    public static VentesDto fromEntity (Ventes ventes) {
+    public static VentesDto fromEntity(Ventes ventes) {
         if (ventes == null) {
             return null;
         }
@@ -32,7 +32,7 @@ public class VentesDto {
                 .build();
     }
 
-    public static Ventes toEntity (VentesDto ventesDto) {
+    public static Ventes toEntity(VentesDto ventesDto) {
         if (ventesDto == null) {
             return null;
         }

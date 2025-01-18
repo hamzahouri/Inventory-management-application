@@ -15,15 +15,17 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class CommandClient extends AbstractEntity{
+public class CommandClient extends AbstractEntity {
 
     private String code;
     private Instant dateCommande;
+
+    private EtatCommande etatCommande;
 
     @ManyToOne
     @JoinColumn(name = "idclient")
     private Client client;
 
-    @OneToMany(mappedBy ="commandClient" )
+    @OneToMany(mappedBy = "commandClient")
     private List<LignCommandeClient> lignCommandeClients;
 }

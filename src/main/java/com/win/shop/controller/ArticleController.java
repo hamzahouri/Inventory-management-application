@@ -38,6 +38,6 @@ public class ArticleController implements ArticleApi {
 
     @Override
     public void delete(Long id) {
-     articleService.delete(id);
+        articleService.delete(id);
     }
 }

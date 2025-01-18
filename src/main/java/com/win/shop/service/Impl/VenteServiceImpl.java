@@ -35,22 +35,22 @@ public class VenteServiceImpl implements VenteService {
     public VentesDto save(VentesDto ventesDto) {
         List<String> errors = VenteValidateur.validate(ventesDto);
         if (!errors.isEmpty()) {
-            throw new InvalidEntityException("Ventes non valid", ErrorsCode.VENTE_NOT_VALID,errors);
+            throw new InvalidEntityException("Ventes non valid", ErrorsCode.VENTE_NOT_VALID, errors);
         }
 
         List<String> error = new ArrayList<>();
         ventesDto.getVenteDtoList().forEach(lignVenteDto -> {
             Optional<Article> article = articleRepository.findById(Long.valueOf(lignVenteDto.getArticle().getId()));
             if (article.isEmpty()) {
-                error.add("Aucune article avec L'ID"+Long.valueOf(lignVenteDto.getArticle().getId())+"existe");
+                error.add("Aucune article avec L'ID" + Long.valueOf(lignVenteDto.getArticle().getId()) + "existe");
             }
         });
 
         if (!error.isEmpty()) {
-            throw new InvalidEntityException("un ou plusieurs Article n'ont pas trouver",ErrorsCode.VENTE_NOT_VALID,error);
+            throw new InvalidEntityException("un ou plusieurs Article n'ont pas trouver", ErrorsCode.VENTE_NOT_VALID, error);
         }
 
-       Ventes savedVentes = ventesRepository.save(ventesDto.toEntity(ventesDto));
+        Ventes savedVentes = ventesRepository.save(ventesDto.toEntity(ventesDto));
         ventesDto.getVenteDtoList().forEach(lgnVentes -> {
             lgnVentes.setVentes(savedVentes);
 
@@ -61,13 +61,13 @@ public class VenteServiceImpl implements VenteService {
 
     @Override
     public VentesDto findById(Long id) {
-        if(id ==null) {
+        if (id == null) {
             return null;
         }
         return ventesRepository.findById(id)
                 .map(VentesDto::fromEntity)
-                .orElseThrow( ()-> new EntityNotFoundException(
-                        "Aucune ventes exuste avec L'id"+id,ErrorsCode.VENTE_NOT_FOUND
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucune ventes exuste avec L'id" + id, ErrorsCode.VENTE_NOT_FOUND
                 ));
     }
 
@@ -87,6 +87,6 @@ public class VenteServiceImpl implements VenteService {
         if (id == null) {
             return;
         }
-   ventesRepository.deleteById(id);
+        ventesRepository.deleteById(id);
     }
 }

@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class Utilisateur extends AbstractEntity{
+public class Utilisateur extends AbstractEntity {
     private String nom;
     private String prenom;
     private String email;

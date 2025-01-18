@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class Entreprise extends AbstractEntity{
+public class Entreprise extends AbstractEntity {
 
     private String nom;
     @Embedded
@@ -24,8 +24,6 @@ public class Entreprise extends AbstractEntity{
     private String numTele;
     private String sitWeb;
     private String description;
-
-
 
 
 //    @OneToMany(mappedBy = "entreprise")

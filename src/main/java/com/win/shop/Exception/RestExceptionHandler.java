@@ -12,10 +12,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
 
-
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<ErrorDto> handleException (EntityNotFoundException exception,
-                                                     WebRequest webRequest) {
+    public ResponseEntity<ErrorDto> handleException(EntityNotFoundException exception,
+                                                    WebRequest webRequest) {
         final HttpStatus notFound = HttpStatus.NOT_FOUND;
         final ErrorDto errorDto = ErrorDto.builder()
                 .errorsCode(exception.getErrorsCode())
@@ -23,12 +22,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 .message(exception.getMessage())
                 .build();
 
-        return new ResponseEntity<>(errorDto,notFound);
+        return new ResponseEntity<>(errorDto, notFound);
     }
 
     @ExceptionHandler(InvalidEntityException.class)
-    public ResponseEntity<ErrorDto> handleException (InvalidEntityException exception,
-                                                     WebRequest webRequest) {
+    public ResponseEntity<ErrorDto> handleException(InvalidEntityException exception,
+                                                    WebRequest webRequest) {
         final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
         final ErrorDto errorDto = ErrorDto.builder()
                 .errorsCode(exception.getErrorsCode())
@@ -36,6 +35,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 .message(exception.getMessage())
                 .build();
 
-        return new ResponseEntity<>(errorDto,badRequest);
+        return new ResponseEntity<>(errorDto, badRequest);
     }
 }

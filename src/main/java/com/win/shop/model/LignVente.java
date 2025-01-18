@@ -6,13 +6,14 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class LignVente extends AbstractEntity{
+public class LignVente extends AbstractEntity {
 
     @ManyToOne
     private Article article;

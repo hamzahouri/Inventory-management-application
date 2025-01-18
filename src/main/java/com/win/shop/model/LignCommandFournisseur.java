@@ -4,13 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class LignCommandFournisseur extends AbstractEntity{
+public class LignCommandFournisseur extends AbstractEntity {
 
     @ManyToOne
     @JoinColumn(name = "idarticle")

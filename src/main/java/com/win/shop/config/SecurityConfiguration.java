@@ -42,15 +42,15 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf().disable()
-                .authorizeHttpRequests((authorize)->{
+                .authorizeHttpRequests((authorize) -> {
                     authorize.requestMatchers(antMatcher("/**/authenticate")).permitAll();
 
                     authorize.anyRequest().authenticated();
@@ -61,7 +61,7 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(){
+    public UserDetailsService userDetailsService() {
 
         UserDetails john = User.builder()
                 .username("john")
@@ -75,6 +75,6 @@ public class SecurityConfiguration {
                 .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(john,sam);
+        return new InMemoryUserDetailsManager(john, sam);
     }
 }
