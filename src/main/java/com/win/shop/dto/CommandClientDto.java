@@ -2,6 +2,7 @@ package com.win.shop.dto;
 
 import com.win.shop.model.Client;
 import com.win.shop.model.CommandClient;
+import com.win.shop.model.EtatCommande;
 import com.win.shop.model.LignCommandeClient;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class CommandClientDto {
     private String code;
     private Instant dateCommande;
     private Client client;
+    private EtatCommande etatCommande;
     private List<LignCommandeClient> lignCommandeClients;
 
     public static CommandClientDto fromEntity(CommandClient commandClient) {
@@ -30,6 +32,7 @@ public class CommandClientDto {
                 .code(commandClient.getCode())
                 .dateCommande(commandClient.getDateCommande())
                 .client(commandClient.getClient())
+                .etatCommande(commandClient.getEtatCommande())
                 .lignCommandeClients(commandClient.getLignCommandeClients())
                 .build();
     }
@@ -41,10 +44,11 @@ public class CommandClientDto {
         }
 
         CommandClient commandClient = new CommandClient();
-         commandClient.setId(commandClientDto.getId());
-         commandClient.setCode(commandClientDto.getCode());
-         commandClient.setDateCommande(commandClientDto.getDateCommande());
-         commandClient.setLignCommandeClients(commandClientDto.getLignCommandeClients());
+        commandClient.setId(commandClientDto.getId());
+        commandClient.setCode(commandClientDto.getCode());
+        commandClient.setEtatCommande(commandClientDto.getEtatCommande());
+        commandClient.setDateCommande(commandClientDto.getDateCommande());
+        commandClient.setLignCommandeClients(commandClientDto.getLignCommandeClients());
         return commandClient;
     }
 }

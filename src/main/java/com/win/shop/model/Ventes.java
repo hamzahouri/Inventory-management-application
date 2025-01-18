@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class Ventes extends AbstractEntity{
+public class Ventes extends AbstractEntity {
 
     private String code;
     private Instant dateVente;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface CommandClientRepository extends JpaRepository<CommandClient,Long> {
+public interface CommandClientRepository extends JpaRepository<CommandClient, Long> {
 
     Optional<CommandClient> findCommandClientByCode(String code);
 }

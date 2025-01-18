@@ -10,9 +10,9 @@ public class CommandFournisseurValidateur {
     public static List<String> validate(CommandeFournisseurDto fournisseurDto) {
         List<String> errors = new ArrayList<>();
 
-        if (fournisseurDto.getCode() ==null
-                && fournisseurDto.getFournisseur() ==null
-                && fournisseurDto.getDateCommande()==null) {
+        if (fournisseurDto.getCode() == null
+                && fournisseurDto.getFournisseur() == null
+                && fournisseurDto.getDateCommande() == null) {
             errors.add("command vide. cod ou client ou date est vide");
         }
 
@@ -20,5 +20,5 @@ public class CommandFournisseurValidateur {
         return errors;
     }
 
-    }
+}
 

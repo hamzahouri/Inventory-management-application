@@ -1,9 +1,12 @@
 package com.win.shop.dto;
+
 import com.win.shop.model.Article;
 import com.win.shop.model.Category;
 import lombok.Builder;
 import lombok.Data;
+
 import java.util.List;
+
 @Builder
 @Data
 public class CategoryDto {

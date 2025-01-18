@@ -8,7 +8,7 @@ import java.util.List;
 
 public class VenteValidateur {
 
-    public static List<String> validate (VentesDto ventesDto) {
+    public static List<String> validate(VentesDto ventesDto) {
         List<String> errors = new ArrayList<>();
         if (ventesDto == null || ventesDto.getCode().isEmpty()) {
             errors.add("Veuillez renseigner le code de la category");

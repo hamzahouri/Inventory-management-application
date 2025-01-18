@@ -11,6 +11,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.time.Instant;
+
 @Getter
 @Setter
 @MappedSuperclass
@@ -22,7 +23,7 @@ public class AbstractEntity implements Serializable {
     private Integer id;
 
     @CreatedDate
-    @Column(name = "creationDate", nullable = false)
+    @Column(name = "creationDate", nullable = false, updatable = false)
     @JsonIgnore
     private Instant creationDate;
 

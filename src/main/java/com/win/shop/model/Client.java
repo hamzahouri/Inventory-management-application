@@ -6,13 +6,14 @@ import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class Client extends AbstractEntity{
+public class Client extends AbstractEntity {
 
     private String nom;
     private String prenom;

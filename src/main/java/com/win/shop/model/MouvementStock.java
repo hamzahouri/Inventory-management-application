@@ -7,13 +7,14 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class MouvementStock extends AbstractEntity{
+public class MouvementStock extends AbstractEntity {
 
     @ManyToOne
     @JoinColumn(name = "idarticle")

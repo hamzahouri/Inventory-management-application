@@ -7,12 +7,12 @@ import java.util.List;
 
 public class CategoryValidateur {
 
-    public static List<String> validate (CategoryDto categoryDto) {
+    public static List<String> validate(CategoryDto categoryDto) {
         List<String> errors = new ArrayList<>();
         if (categoryDto == null || categoryDto.getCode().isEmpty()) {
             errors.add("Veuillez renseigner le code de la category");
         }
-  return errors;
+        return errors;
     }
 
 }

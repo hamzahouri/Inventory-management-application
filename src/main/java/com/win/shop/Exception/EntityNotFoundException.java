@@ -2,7 +2,7 @@ package com.win.shop.Exception;
 
 import lombok.Getter;
 
-public class EntityNotFoundException extends RuntimeException{
+public class EntityNotFoundException extends RuntimeException {
 
     @Getter
     private ErrorsCode errorsCode;

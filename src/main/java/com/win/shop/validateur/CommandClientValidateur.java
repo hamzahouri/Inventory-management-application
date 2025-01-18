@@ -11,9 +11,9 @@ public class CommandClientValidateur {
     public static List<String> validate(CommandClientDto commandClientDto) {
         List<String> errors = new ArrayList<>();
 
-        if (commandClientDto.getCode() ==null
-                && commandClientDto.getClient() ==null
-                && commandClientDto.getDateCommande()==null) {
+        if (commandClientDto.getCode() == null
+                && commandClientDto.getClient() == null
+                && commandClientDto.getDateCommande() == null) {
             errors.add("command vide. cod ou client ou date est vide");
         }
 

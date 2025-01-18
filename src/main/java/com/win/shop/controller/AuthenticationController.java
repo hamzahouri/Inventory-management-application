@@ -30,7 +30,7 @@ public class AuthenticationController {
     private JwtUtil jwtUtil;
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate (@RequestBody AuthenticationRequest request) {
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
 //        authenticationProvider.authenticate(
 //                new UsernamePasswordAuthenticationToken(
 //                        request.getLogin(),

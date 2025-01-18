@@ -35,19 +35,19 @@ public class CommandeClientImpl implements CommandClientService {
     @Override
     public CommandClientDto save(CommandClientDto commandClientDto) {
         List<String> errors = CommandClientValidateur.validate(commandClientDto);
-        if(!errors.isEmpty()) {
-            throw new InvalidEntityException("Command n'est pas valid", ErrorsCode.COMMAND_CLIENT_NOT_VALID,errors);
+        if (!errors.isEmpty()) {
+            throw new InvalidEntityException("Command n'est pas valid", ErrorsCode.COMMAND_CLIENT_NOT_VALID, errors);
         }
 
         Optional<Client> client = clientRepository.findById(Long.valueOf(commandClientDto.getClient().getId()));
         if (!client.isPresent()) {
-            throw new EntityNotFoundException("Aucune client avec ce id est trouver",ErrorsCode.CLIENT_NOT_FOUND);
+            throw new EntityNotFoundException("Aucune client avec ce id est trouver", ErrorsCode.CLIENT_NOT_FOUND);
         }
 
         List<String> articlerrors = new ArrayList<>();
-        if(commandClientDto.getLignCommandeClients() !=null) {
+        if (commandClientDto.getLignCommandeClients() != null) {
             commandClientDto.getLignCommandeClients().forEach(lgnCmdt -> {
-                if(lgnCmdt.getArticle() !=null) {
+                if (lgnCmdt.getArticle() != null) {
                     Optional<Article> article = articleRepository.findById(Long.valueOf(lgnCmdt.getArticle().getId()));
                     if (article.isEmpty()) {
                         articlerrors.add("L' article n'existe pas");
@@ -56,8 +56,8 @@ public class CommandeClientImpl implements CommandClientService {
             });
         }
 
-        if(!articlerrors.isEmpty()) {
-             throw new InvalidEntityException("Aucune article existe",ErrorsCode.ARTICLE_NOT_FOUND,articlerrors);
+        if (!articlerrors.isEmpty()) {
+            throw new InvalidEntityException("Aucune article existe", ErrorsCode.ARTICLE_NOT_FOUND, articlerrors);
         }
 
         CommandClient savedCommandClient = commandClientRepository.save(CommandClientDto.toEntity(commandClientDto));
@@ -72,25 +72,25 @@ public class CommandeClientImpl implements CommandClientService {
     @Override
     public CommandClientDto findById(Long id) {
 
-        if(id ==null) {
+        if (id == null) {
             return null;
         }
         return commandClientRepository.findById(id)
                 .map(CommandClientDto::fromEntity)
-                .orElseThrow( ()-> new EntityNotFoundException(
-                        "Aucune commande exuste avec L'id"+id,ErrorsCode.COMMAND_CLIENT_NOT_FOUND
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucune commande existe avec L'id" + id, ErrorsCode.COMMAND_CLIENT_NOT_FOUND
                 ));
     }
 
     @Override
     public CommandClientDto findByCode(String code) {
-        if(code.isEmpty()) {
+        if (code.isEmpty()) {
             return null;
         }
         return commandClientRepository.findCommandClientByCode(code)
                 .map(CommandClientDto::fromEntity)
-                .orElseThrow( ()-> new EntityNotFoundException(
-                        "Aucune commande exuste avec ce code"+code,ErrorsCode.COMMAND_CLIENT_NOT_FOUND
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucune commande exuste avec ce code" + code, ErrorsCode.COMMAND_CLIENT_NOT_FOUND
                 ));
     }
 
@@ -104,7 +104,7 @@ public class CommandeClientImpl implements CommandClientService {
 
     @Override
     public void delete(Long id) {
-        if(id == null) {
+        if (id == null) {
             return;
         }
         commandClientRepository.deleteById(id);

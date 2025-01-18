@@ -1,4 +1,5 @@
 package com.win.shop.dto;
+
 import com.win.shop.model.Article;
 import lombok.Builder;
 import lombok.Data;
@@ -6,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+
 @Builder
 @Getter
 @Setter
@@ -19,7 +21,7 @@ public class ArticleDto {
     private String photo;
     private CategoryDto category;
 
-    public static ArticleDto fromEntity (Article article) {
+    public static ArticleDto fromEntity(Article article) {
         if (article == null) {
             return null;
         }
@@ -33,7 +35,7 @@ public class ArticleDto {
                 .build();
     }
 
-    public static Article toEntity (ArticleDto articleDto) {
+    public static Article toEntity(ArticleDto articleDto) {
         if (articleDto == null) {
             return null;
         }

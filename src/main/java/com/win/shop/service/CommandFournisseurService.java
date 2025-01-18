@@ -6,9 +6,13 @@ import com.win.shop.dto.CommandeFournisseurDto;
 import java.util.List;
 
 public interface CommandFournisseurService {
-    CommandeFournisseurDto save (CommandeFournisseurDto fournisseurDto);
-    CommandeFournisseurDto findById (Long id);
-    CommandeFournisseurDto findByCode (String code);
-    List<CommandeFournisseurDto> findAll ();
-    void delete (Long id);
+    CommandeFournisseurDto save(CommandeFournisseurDto fournisseurDto);
+
+    CommandeFournisseurDto findById(Long id);
+
+    CommandeFournisseurDto findByCode(String code);
+
+    List<CommandeFournisseurDto> findAll();
+
+    void delete(Long id);
 }

@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class CommandeFournisseur extends AbstractEntity{
+public class CommandeFournisseur extends AbstractEntity {
 
     private String code;
     private Instant dateCommande;

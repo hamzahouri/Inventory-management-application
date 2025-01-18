@@ -35,19 +35,19 @@ public class CommandFrnsImpl implements CommandFournisseurService {
     @Override
     public CommandeFournisseurDto save(CommandeFournisseurDto fournisseurDto) {
         List<String> errors = CommandFournisseurValidateur.validate(fournisseurDto);
-        if(!errors.isEmpty()) {
-            throw new InvalidEntityException("Command n'est pas valid", ErrorsCode.COMMAND_Fournisseur_NOT_VALID,errors);
+        if (!errors.isEmpty()) {
+            throw new InvalidEntityException("Command n'est pas valid", ErrorsCode.COMMAND_Fournisseur_NOT_VALID, errors);
         }
 
         Optional<Fournisseur> fournisseur = fournisseurRepository.findById(Long.valueOf(fournisseurDto.getFournisseur().getId()));
         if (!fournisseur.isPresent()) {
-            throw new EntityNotFoundException("Aucune Fournisseur avec ce id est trouver",ErrorsCode.Founisseur_NOT_FOUND);
+            throw new EntityNotFoundException("Aucune Fournisseur avec ce id est trouver", ErrorsCode.Founisseur_NOT_FOUND);
         }
 
         List<String> articlerrors = new ArrayList<>();
-        if(fournisseurDto.getLignsCommandFournisseur() !=null) {
+        if (fournisseurDto.getLignsCommandFournisseur() != null) {
             fournisseurDto.getLignsCommandFournisseur().forEach(lgnCmdt -> {
-                if(lgnCmdt.getArticle() !=null) {
+                if (lgnCmdt.getArticle() != null) {
                     Optional<Article> article = articleRepository.findById(Long.valueOf(lgnCmdt.getArticle().getId()));
                     if (article.isEmpty()) {
                         articlerrors.add("L' article n'existe pas");
@@ -56,8 +56,8 @@ public class CommandFrnsImpl implements CommandFournisseurService {
             });
         }
 
-        if(!articlerrors.isEmpty()) {
-            throw new InvalidEntityException("Aucune article existe",ErrorsCode.ARTICLE_NOT_FOUND,articlerrors);
+        if (!articlerrors.isEmpty()) {
+            throw new InvalidEntityException("Aucune article existe", ErrorsCode.ARTICLE_NOT_FOUND, articlerrors);
         }
 
         CommandeFournisseur savedCommandFrns = commandFournisseurRepository.save(fournisseurDto.toEntity(fournisseurDto));
@@ -71,25 +71,25 @@ public class CommandFrnsImpl implements CommandFournisseurService {
 
     @Override
     public CommandeFournisseurDto findById(Long id) {
-        if(id ==null) {
+        if (id == null) {
             return null;
         }
         return commandFournisseurRepository.findById(id)
                 .map(CommandeFournisseurDto::fromEntity)
-                .orElseThrow( ()-> new EntityNotFoundException(
-                        "Aucune commande exuste avec L'id"+id,ErrorsCode.COMMAND_Fournisseur_NOT_FOUND
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucune commande exuste avec L'id" + id, ErrorsCode.COMMAND_Fournisseur_NOT_FOUND
                 ));
     }
 
     @Override
     public CommandeFournisseurDto findByCode(String code) {
-        if(code.isEmpty()) {
+        if (code.isEmpty()) {
             return null;
         }
         return commandFournisseurRepository.findCommandeFournisseurByCode(code)
                 .map(CommandeFournisseurDto::fromEntity)
-                .orElseThrow( ()-> new EntityNotFoundException(
-                        "Aucune commande exIste avec ce code"+code,ErrorsCode.COMMAND_Fournisseur_NOT_FOUND
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucune commande exIste avec ce code" + code, ErrorsCode.COMMAND_Fournisseur_NOT_FOUND
                 ));
 
     }
@@ -104,7 +104,7 @@ public class CommandFrnsImpl implements CommandFournisseurService {
 
     @Override
     public void delete(Long id) {
-        if(id == null) {
+        if (id == null) {
             return;
         }
         commandFournisseurRepository.deleteById(id);
